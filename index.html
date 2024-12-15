@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensaje</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: white;
+            font-size: 5em;
+            text-align: center;
+            font-family: 'Baloo 2', sans-serif;
+            position: relative;
+        }
+        .small-text {
+            font-size: 0.15em;
+            opacity: 0.3;
+            margin-top: 20px;
+        }
+        .btn {
+            margin-top: 2px;
+            padding: 2px 5px;
+            font-size: 0.2em;
+            background-color: white;
+            color: black;
+            border: 2px solid black;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #f2f2f2;
+        }
+        .jajaja {
+            position: absolute;
+            color: cyan;
+            font-size: 2em;
+            opacity: 0.34;
+            animation: floatAndFade 3s forwards;
+        }
+        @keyframes floatAndFade {
+            0% {
+                opacity: 0.34;
+                transform: translateY(0) translateX(0);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100px) translateX(100px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="main-text">
+        PENDEJO EL QUE LO LEA
+    </div>
+    <div class="small-text">
+        DE VENTA EN CDPRINTSHOP
+    </div>
+    <a href="https://www.instagram.com/cdprintshop/" target="_blank">
+        <button class="btn">Visita nuestro Instagram</button>
+    </a>
+
+    <script>
+        // Función para crear y mostrar los textos "JAJAJA"
+        function showRandomJajaja(event) {
+            for (let i = 0; i < 10; i++) { // Generamos 10 textos "JAJAJA"
+                const jajaja = document.createElement('div');
+                jajaja.classList.add('jajaja');
+                jajaja.innerText = 'JAJAJA';
+
+                // Generar posiciones aleatorias en la pantalla
+                const xPos = Math.random() * window.innerWidth;
+                const yPos = Math.random() * window.innerHeight;
+                jajaja.style.left = `${xPos}px`;
+                jajaja.style.top = `${yPos}px`;
+
+                // Añadir el texto "JAJAJA" a la pantalla
+                document.body.appendChild(jajaja);
+
+                // Después de 3 segundos, eliminar el texto
+                setTimeout(() => {
+                    jajaja.remove();
+                }, 3000);
+            }
+        }
+
+        // Añadir evento de clic en cualquier parte del texto principal
+        const mainText = document.getElementById('main-text');
+        mainText.addEventListener('click', showRandomJajaja);
+    </script>
+</body>
+</html>
